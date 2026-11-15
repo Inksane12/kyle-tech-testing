@@ -1,0 +1,54 @@
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+.local/
+*.local.*
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+secrets.*
+*.secret
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+
+# Machine-local and editor metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Logs, caches, and temporary output
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+.cache/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+
+# Private or unreviewed material
+private/
+internal/
+unpublished/
+raw-private-evidence/
+*_private.*
+*_internal.*
+*.ps1
+*.jsonl
+*.trace
+
+# Dependencies / build output (this site needs none)
+node_modules/
+dist/
+build/

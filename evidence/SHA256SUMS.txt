@@ -1,0 +1,5 @@
+SHA-256 checksums for the exact evidence CSV copies included in this website.
+Source portfolio: https://github.com/Inksane12/hardware-testing-portfolio
+
+f6a39dfcb3febf9c61e88a1944f91f20171846f07309a833cf40b4d63f3d8a00  data/idle.csv
+41881d8562b4bdad2d31a9aba1decef8a33eeb939b2332600dfefe45b27fd3a7  data/mixed-comfyui.csv

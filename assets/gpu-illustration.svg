@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="700" viewBox="0 0 1100 700" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Illustrative dual-fan graphics card</title><desc id="desc">Original stylized illustration of a generic two-fan graphics card. It is not a photograph or representation of the specific tested RTX 4070 board.</desc>
+  <defs><linearGradient id="body" x1="209" x2="856" y1="147" y2="575" gradientUnits="userSpaceOnUse"><stop stop-color="#303e50"/><stop offset=".46" stop-color="#151d28"/><stop offset="1" stop-color="#0c1119"/></linearGradient><linearGradient id="edge" x1="192" x2="866" y1="198" y2="513" gradientUnits="userSpaceOnUse"><stop stop-color="#b4c6db"/><stop offset=".2" stop-color="#38475a"/><stop offset=".78" stop-color="#1e2a38"/><stop offset="1" stop-color="#91b8dd"/></linearGradient><radialGradient id="fan" cx="0" cy="0" r="1" gradientTransform="matrix(0 156 -156 0 0 0)" gradientUnits="userSpaceOnUse"><stop stop-color="#29394b"/><stop offset=".65" stop-color="#131b26"/><stop offset="1" stop-color="#080d13"/></radialGradient><linearGradient id="blade" x1="-100" x2="100" y1="-11" y2="16" gradientUnits="userSpaceOnUse"><stop stop-color="#6c829c"/><stop offset=".5" stop-color="#28394d"/><stop offset="1" stop-color="#101720"/></linearGradient><filter id="shadow" width="122%" height="138%" x="-11%" y="-15%" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="25"/></filter><filter id="glow" width="180%" height="180%" x="-40%" y="-40%" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="13"/></filter><g id="bladeShape"><path d="M-9-20c34-52 112-67 132-32 13 23-18 51-57 63-25 8-48 11-65 7-12-3-18-16-10-38Z" fill="url(#blade)" stroke="#52667d" stroke-opacity=".35"/></g><g id="fan"><circle r="159" fill="url(#fan)" stroke="#72859c" stroke-opacity=".42" stroke-width="2"/><circle r="144" stroke="#415166" stroke-opacity=".65"/><g fill="url(#blade)" opacity=".92"><use href="#bladeShape" transform="rotate(0)"/><use href="#bladeShape" transform="rotate(45)"/><use href="#bladeShape" transform="rotate(90)"/><use href="#bladeShape" transform="rotate(135)"/><use href="#bladeShape" transform="rotate(180)"/><use href="#bladeShape" transform="rotate(225)"/><use href="#bladeShape" transform="rotate(270)"/><use href="#bladeShape" transform="rotate(315)"/></g><circle r="36" fill="#111a25" stroke="#7387a0" stroke-opacity=".7" stroke-width="2"/><circle r="25" fill="#1d2a38"/><path d="m0-16 6 16-6 16-6-16z" fill="#a6d8ff" fill-opacity=".8"/><path d="M-16 0h32" stroke="#52718e"/></g></defs>
+  <ellipse cx="548" cy="574" fill="#000" opacity=".58" rx="370" ry="49" filter="url(#shadow)"/>
+  <ellipse cx="560" cy="560" fill="#1684f7" opacity=".3" rx="261" ry="25" filter="url(#glow)"/>
+  <g transform="translate(92 61) rotate(-8 458 300)">
+    <path d="M153 175 840 159l58 48v290l-55 51-686-4-57-54V227z" fill="url(#body)" stroke="url(#edge)" stroke-width="8"/>
+    <path d="m173 174 662-15 31 26-688 20-56 53-4 227-23-20V227z" fill="#576a80" fill-opacity=".45"/>
+    <path d="m138 469 718 4-43 44-676-4z" fill="#101721" stroke="#4f6278" stroke-width="3"/>
+    <path d="M166 218 846 198v286l-681-6z" fill="#0a1017" stroke="#4c5e73" stroke-opacity=".62" stroke-width="3"/>
+    <path d="M186 244 841 226" stroke="#8abbe9" stroke-opacity=".2" stroke-width="2"/>
+    <path d="M181 472 841 480" stroke="#56aaff" stroke-opacity=".68" stroke-width="5"/>
+    <path d="M228 496h94m10 0h11m9 0h11m10 0h11m10 0h11" stroke="#71879f" stroke-width="5" stroke-linecap="round"/>
+    <path d="m840 206 49 41v239l-48 38" stroke="#8da0b5" stroke-opacity=".7" stroke-width="5"/>
+    <path d="M884 253h26v193h-26" fill="#64768a" stroke="#adbac9" stroke-width="3"/>
+    <path d="M884 276h26m-26 12h26m-26 12h26m-26 12h26m-26 12h26m-26 12h26m-26 12h26m-26 12h26m-26 12h26m-26 12h26m-26 12h26m-26 12h26" stroke="#253142" stroke-width="3"/>
+    <path d="M470 157h157v22H470z" fill="#263546" stroke="#74869b" stroke-width="3"/><path d="M483 158v19m14-19v19m14-19v19m14-19v19m14-19v19m14-19v19m14-19v19m14-19v19m14-19v19" stroke="#a1b0bf" stroke-opacity=".6" stroke-width="2"/>
+    <g transform="translate(351 347) scale(.76)"><use href="#fan"/></g><g transform="translate(675 347) scale(.76)"><use href="#fan"/></g>
+    <path d="M185 243h64m-64 18h34m-34 18h48m-45 180h44" stroke="#7da3c5" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/>
+    <path d="m189 211 19-1m11-1 17-1m12-1 17-1" stroke="#66b8ff" stroke-width="3" stroke-linecap="round"/>
+    <path d="M192 517h653" stroke="#28394d" stroke-width="6"/>
+  </g>
+  <path d="M212 625h672" stroke="#3f566e" stroke-opacity=".5"/><circle cx="211" cy="625" r="3" fill="#65baff"/><circle cx="886" cy="625" r="3" fill="#65baff"/>
+</svg>
