@@ -1,0 +1,8 @@
+device_name,median_score_samples_per_min,benchmark_count,blender_version,compute_type,source_name,collected_utc
+NVIDIA GeForce RTX 5080,9163.59,1151,4.4.0,OPTIX,Blender Open Data,2026-11-21
+NVIDIA GeForce RTX 4080 SUPER,8440.77,168,4.4.0,OPTIX,Blender Open Data,2026-11-21
+NVIDIA GeForce RTX 4080,8429.57,139,4.4.0,OPTIX,Blender Open Data,2026-11-21
+NVIDIA GeForce RTX 4070 Ti SUPER,7123.36,240,4.4.0,OPTIX,Blender Open Data,2026-11-21
+NVIDIA GeForce RTX 4070 Ti,6307.34,151,4.4.0,OPTIX,Blender Open Data,2026-11-21
+NVIDIA GeForce RTX 5070,6190.96,436,4.4.0,OPTIX,Blender Open Data,2026-11-21
+NVIDIA GeForce RTX 4070 SUPER,6155.93,256,4.4.0,OPTIX,Blender Open Data,2026-11-21

@@ -13,7 +13,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent
-PAGES = ("index.html", "evaluation.html", "methods.html", "sample-reports.html", "collaborate.html", "lab.html", "reports.html", "demo-mini-pc.html", "demo-peripheral.html", "demo-networking.html")
+PAGES = ("index.html", "evaluation.html", "methods.html", "sample-reports.html", "collaborate.html", "lab.html", "reports.html", "demo-mini-pc.html", "demo-peripheral.html", "demo-networking.html", "research-hub.html", "gpu-research.html", "mini-pc-guide.html", "processor-guide.html", "windows-compatibility.html")
 EXPECTED = {
     "idle.csv": {"temperature_c": ("30.66", "32.00"), "utilization_pct": ("1.03", "35.00"), "memory_used_mib": ("1687.46", "1815.00"), "power_w": ("9.51", "23.64")},
     "mixed-comfyui.csv": {"temperature_c": ("42.44", "64.00"), "utilization_pct": ("33.22", "100.00"), "memory_used_mib": ("7540.88", "11571.00"), "power_w": ("54.84", "184.81")},
@@ -175,11 +175,57 @@ def verify_privacy_and_presentation() -> None:
         fail("GitHub Pages .nojekyll marker missing")
 
 
+def verify_research_snapshot() -> None:
+    path = ROOT / "data" / "blender-4.4.0-optix-gpu.csv"
+    with path.open(encoding="utf-8", newline="") as stream:
+        reader = csv.DictReader(stream)
+        rows = list(reader)
+        required = ["device_name", "median_score_samples_per_min", "benchmark_count", "blender_version", "compute_type", "source_name", "collected_utc"]
+        if reader.fieldnames != required or len(rows) != 7:
+            fail("Blender snapshot schema or record count mismatch")
+        if len({row["device_name"] for row in rows}) != len(rows):
+            fail("duplicate GPU in Blender snapshot")
+        expected_rows = {
+            "NVIDIA GeForce RTX 5080": ("9163.59", 1151),
+            "NVIDIA GeForce RTX 4080 SUPER": ("8440.77", 168),
+            "NVIDIA GeForce RTX 4080": ("8429.57", 139),
+            "NVIDIA GeForce RTX 4070 Ti SUPER": ("7123.36", 240),
+            "NVIDIA GeForce RTX 4070 Ti": ("6307.34", 151),
+            "NVIDIA GeForce RTX 5070": ("6190.96", 436),
+            "NVIDIA GeForce RTX 4070 SUPER": ("6155.93", 256),
+        }
+        actual_rows = {row["device_name"]: (row["median_score_samples_per_min"], int(row["benchmark_count"])) for row in rows}
+        if actual_rows != expected_rows:
+            fail("headline Blender scores or sample counts differ from the verified query snapshot")
+        for row in rows:
+            if row["blender_version"] != "4.4.0" or row["compute_type"] != "OPTIX" or row["source_name"] != "Blender Open Data" or row["collected_utc"] != "2026-11-21":
+                fail("Blender snapshot contains inconsistent source metadata")
+            if Decimal(row["median_score_samples_per_min"]) <= 0 or int(row["benchmark_count"]) <= 0:
+                fail("Blender snapshot contains invalid measurement")
+    hub = (ROOT / "research-hub.html").read_text(encoding="utf-8")
+    gpu_article = (ROOT / "gpu-research.html").read_text(encoding="utf-8")
+    if "THIRD-PARTY DATA" not in hub or "NOT TESTED BY KYLE TECH TESTING" not in hub or "CC0 (Creative Commons Zero)" not in hub or "different processors" not in gpu_article.lower():
+        fail("external benchmark attribution or conditions disclosure missing")
+    for article, marker in (("mini-pc-guide.html", "not a review of a specific mini pc"), ("processor-guide.html", "not kyle tech test results"), ("windows-compatibility.html", "not a claim that the listed devices were tested")):
+        if marker not in (ROOT / article).read_text(encoding="utf-8").lower():
+            fail(f"{article}: research-vs-testing distinction missing")
+    sources = (ROOT / "research-sources.md").read_text(encoding="utf-8")
+    for expected in ("CC0", "Open GPU Benchmarks", "synthetic scaffold data", "2026-11-21", "Intel ARK", "Microsoft"):
+        if expected.lower() not in sources.lower():
+            fail(f"research source register missing {expected}")
+    for device, (score, count) in expected_rows.items():
+        model_label = device.replace("NVIDIA GeForce ", "")
+        expected_table_row = f"<th scope=\"row\">{model_label}</th><td>{Decimal(score):,.2f}</td><td>{count:,}</td>"
+        if model_label not in (ROOT / "data" / "blender-4.4.0-optix-gpu.csv").read_text(encoding="utf-8") or expected_table_row not in gpu_article:
+            fail(f"research chart/table is missing source data for {device}")
+
+
 def main() -> None:
     links = verify_links()
     verify_csv_and_hashes()
     verify_privacy_and_presentation()
-    print(f"PASS: {len(PAGES)} pages; {links} local links/assets; two byte-verified 59-sample CSVs; report statistics; responsive/accessibility/privacy checks.")
+    verify_research_snapshot()
+    print(f"PASS: {len(PAGES)} pages; {links} local links/assets; two byte-verified 59-sample evidence CSVs; seven-row third-party benchmark snapshot; responsive/accessibility/privacy/source-attribution checks.")
 
 
 if __name__ == "__main__":
