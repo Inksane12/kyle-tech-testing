@@ -212,7 +212,7 @@ def verify_research_snapshot() -> None:
                 fail("Blender snapshot contains invalid measurement")
     hub = (ROOT / "research-hub.html").read_text(encoding="utf-8")
     gpu_article = (ROOT / "gpu-research.html").read_text(encoding="utf-8")
-    if "THIRD-PARTY DATA" not in hub or "NOT TESTED BY KYLE TECH TESTING" not in hub or "CC0 (Creative Commons Zero)" not in hub or "different processors" not in gpu_article.lower():
+    if "THIRD-PARTY DATA · NOT TESTED BY KYLE TECH TESTING" in hub or "Blender Open Data" not in hub or "CC0 (Creative Commons Zero)" not in hub or "not a controlled lab comparison" not in hub.lower() or "different processors" not in gpu_article.lower():
         fail("external benchmark attribution or conditions disclosure missing")
     for article, marker in (("mini-pc-guide.html", "not a review of a specific mini pc"), ("processor-guide.html", "not kyle tech test results"), ("windows-compatibility.html", "not a claim that the listed devices were tested")):
         if marker not in (ROOT / article).read_text(encoding="utf-8").lower():
