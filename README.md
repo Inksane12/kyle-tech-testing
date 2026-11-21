@@ -1,6 +1,6 @@
 # Kyle Tech Testing — Showcase Website
 
-A build-free, responsive marketing showcase for an emerging independent hardware reviewer. It uses only local HTML, CSS, JavaScript, SVG, and PNG assets. No analytics, tracking, runtime package, external font request, backend, or third-party JavaScript is used.
+A responsive platform for independent Windows hardware evaluations and technical research. It uses local HTML, CSS, JavaScript, SVG, and PNG assets without analytics, tracking, external fonts, a backend, or third-party JavaScript.
 
 ## Preview on Windows
 
@@ -25,6 +25,7 @@ The static dark-theme PNG charts are generated from the same preserved CSVs. To 
 - `methods.html` — evaluation principles and clear status of present capabilities versus planned work.
 - `sample-reports.html` and `demo-*.html` — report layouts and three separate demonstrations; these are **not completed product evaluations** and contain no test findings.
 - `collaborate.html` — manufacturer-specific collaboration process, possible deliverables, sample terms, editorial boundaries, and direct contact.
+- `media-kit.html` — concise manufacturer overview designed to print or save as a one-page PDF.
 - `research-hub.html` — searchable source-linked research index and an interactive chart of a fixed Blender Open Data GPU comparison snapshot.
 - `gpu-research.html`, `mini-pc-guide.html`, `processor-guide.html`, and `windows-compatibility.html` — source-labeled GPU data interpretation, mini PC evaluation guide, Intel N100 specification guide, and Windows peripheral/network compatibility methodology.
 - `research-sources.md` — source-by-source reuse basis, collection date, caveats, and excluded candidate data sources.
@@ -37,7 +38,7 @@ The actual source is the two included 59-row GPU telemetry captures from the exi
 
 Two ERNIE Image Turbo generations were reported by the operator; no screenshot, output, or application history was supplied to independently verify completion. This is disclosed on the evaluation page. The included CSVs preserve timestamps and numeric GPU telemetry. See `evidence/SHA256SUMS.txt` for their hashes.
 
-The only completed review displayed is the short RTX 4070 telemetry evaluation. Windows peripheral, gaming, networking, and mini-PC sections describe areas or procedures that have not yet been tested. The reported non-GPU equipment is not independently verified.
+Published work includes the RTX 4070 telemetry evaluation and source-linked hardware research. Peripheral, gaming, networking, and mini-PC pages explain evaluation tracks and report formats; each is labeled so examples and research are not confused with first-party product results. The equipment inventory distinguishes the measured workstation from additional owner-reported gear.
 
 ## Hardware Research Hub
 

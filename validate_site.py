@@ -13,7 +13,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent
-PAGES = ("index.html", "evaluation.html", "methods.html", "sample-reports.html", "collaborate.html", "lab.html", "reports.html", "demo-mini-pc.html", "demo-peripheral.html", "demo-networking.html", "research-hub.html", "gpu-research.html", "mini-pc-guide.html", "processor-guide.html", "windows-compatibility.html")
+PAGES = ("index.html", "evaluation.html", "methods.html", "sample-reports.html", "collaborate.html", "lab.html", "reports.html", "demo-mini-pc.html", "demo-peripheral.html", "demo-networking.html", "research-hub.html", "gpu-research.html", "mini-pc-guide.html", "processor-guide.html", "windows-compatibility.html", "media-kit.html")
 EXPECTED = {
     "idle.csv": {"temperature_c": ("30.66", "32.00"), "utilization_pct": ("1.03", "35.00"), "memory_used_mib": ("1687.46", "1815.00"), "power_w": ("9.51", "23.64")},
     "mixed-comfyui.csv": {"temperature_c": ("42.44", "64.00"), "utilization_pct": ("33.22", "100.00"), "memory_used_mib": ("7540.88", "11571.00"), "power_w": ("54.84", "184.81")},
@@ -165,11 +165,18 @@ def verify_privacy_and_presentation() -> None:
     if "kyle.techtesting@gmail.com" in public_text:
         fail("outdated public contact address remains in site files")
     collaboration = (ROOT / "collaborate.html").read_text(encoding="utf-8")
-    if "Propose a Hardware Evaluation" not in collaboration or "mailto:contact@kyletechtesting.com?subject=Hardware%20evaluation%20proposal" not in collaboration or "Your%20name%2C%20role%2C%20and%20contact%20information" not in collaboration:
+    if "PROPOSE A HARDWARE EVALUATION" not in collaboration or "mailto:contact@kyletechtesting.com?subject=Hardware%20evaluation%20proposal" not in collaboration or "Your%20name%2C%20role%2C%20and%20contact%20information" not in collaboration:
         fail("manufacturer CTA or prefilled contact fields are missing")
     if "Your specifications tell customers what your hardware is designed to do." not in collaboration:
         fail("manufacturer value proposition is missing")
-    for disclosure in ("not independently verified", "not tested", "endurance", "no established"):
+    if "PROPOSE A HARDWARE EVALUATION" not in collaboration or "complimentary, free-to-keep" not in collaboration or "shipping covered by the manufacturer" not in collaboration:
+        fail("manufacturer evaluation CTA or preferred sample terms are missing")
+    if "five-step evaluation collaboration" not in collaboration.lower() or "Ship the agreed evaluation unit" not in collaboration:
+        fail("manufacturer collaboration process is incomplete")
+    media_kit = (ROOT / "media-kit.html").read_text(encoding="utf-8")
+    if "MANUFACTURER MEDIA KIT" not in media_kit or "PROPOSE A HARDWARE EVALUATION" not in media_kit or "contact@kyletechtesting.com" not in media_kit:
+        fail("manufacturer media kit or contact CTA is incomplete")
+    for disclosure in ("not independently verified", "not tested", "endurance"):
         if disclosure not in pages.lower():
             fail(f"required evidence/marketing disclosure missing: {disclosure}")
     for name in ("demo-mini-pc.html", "demo-peripheral.html", "demo-networking.html"):
