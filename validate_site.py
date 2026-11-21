@@ -74,9 +74,9 @@ def verify_links() -> int:
         text = path.read_text(encoding="utf-8")
         parser = PageAudit()
         parser.feed(text)
-        required_navigation = ('href="lab.html"', 'href="reports.html"', 'href="sample-reports.html"', 'href="collaborate.html"')
+        required_navigation = ('href="lab.html"', 'href="reports.html"', 'href="research-hub.html"', 'href="sample-reports.html"', 'href="collaborate.html"')
         if any(link not in text for link in required_navigation):
-            fail(f"{name}: expected Test Lab, Reports, Examples, and manufacturer navigation links")
+            fail(f"{name}: expected Test Lab, Reports, Research, Examples, and manufacturer navigation links")
         if parser.h1_count != 1:
             fail(f"{name}: expected one h1, got {parser.h1_count}")
         if parser.images_missing_alt:
@@ -159,8 +159,16 @@ def verify_privacy_and_presentation() -> None:
     if re.search(r"(?i)([A-Z]:\\Users\\|[A-Z]:\\AI\\|sk-[a-zA-Z0-9]{16,}|gh[pousr]_[A-Za-z0-9]{20,}|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----)", "\n".join(p.read_text(encoding="utf-8", errors="ignore") for p in ROOT.rglob("*") if p.is_file() and p.suffix.lower() not in {".png"})):
         fail("local path or credential-shaped string found in public site files")
     pages = "\n".join((ROOT / name).read_text(encoding="utf-8") for name in PAGES)
-    if "kyle.techtesting@gmail.com" not in pages:
-        fail("public contact address is missing")
+    if "contact@kyletechtesting.com" not in pages:
+        fail("current public contact address is missing")
+    public_text = "\n".join(p.read_text(encoding="utf-8", errors="ignore") for p in ROOT.rglob("*") if p.is_file() and ".git" not in p.parts and p.suffix.lower() in {".html", ".md"})
+    if "kyle.techtesting@gmail.com" in public_text:
+        fail("outdated public contact address remains in site files")
+    collaboration = (ROOT / "collaborate.html").read_text(encoding="utf-8")
+    if "Propose a Hardware Evaluation" not in collaboration or "mailto:contact@kyletechtesting.com?subject=Hardware%20evaluation%20proposal" not in collaboration or "Your%20name%2C%20role%2C%20and%20contact%20information" not in collaboration:
+        fail("manufacturer CTA or prefilled contact fields are missing")
+    if "Your specifications tell customers what your hardware is designed to do." not in collaboration:
+        fail("manufacturer value proposition is missing")
     for disclosure in ("not independently verified", "not tested", "endurance", "no established"):
         if disclosure not in pages.lower():
             fail(f"required evidence/marketing disclosure missing: {disclosure}")

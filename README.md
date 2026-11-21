@@ -84,4 +84,4 @@ If either source CSV is intentionally updated, regenerate the `file://` fallback
 
 ## Contact
 
-[kyle.techtesting@gmail.com](mailto:kyle.techtesting@gmail.com)
+[contact@kyletechtesting.com](mailto:contact@kyletechtesting.com)
