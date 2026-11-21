@@ -2,13 +2,13 @@
 
 [Showcase](../index.html) · [Manufacturer collaboration](../collaborate.html)
 
-Kyle Tech Testing is an emerging independent enthusiast portfolio. It does not claim established audience reach, professional lab accreditation, manufacturer endorsement, or a prior sponsorship history.
+Kyle Tech Testing is an independent Windows hardware-testing and technical-research operation. Reports identify product sources and material relationships, including complimentary samples, loans, payment, affiliate links, and return terms.
 
 - Reports describe the equipment, methods, conditions, and evidence actually available.
-- A free sample or other consideration does not guarantee favorable findings or publication.
+- Evaluation terms are agreed in writing; sample hardware does not determine the findings.
 - Any product source, loan/gift/purchase terms, payment, affiliate links, return obligations, and manufacturer involvement are disclosed per report.
 - Measurement, operator report, subjective observation, interpretation, and unknowns are labeled separately.
-- Templates and planned methods are not product evaluations.
+- Research, demonstrations, and planned work are labeled separately from completed evaluations.
 - Private information, serials, machine names, accounts, and unrelated files are excluded from public evidence.
 - Owner approval is required before new workloads, software installation, firmware changes, or destructive testing.
 
