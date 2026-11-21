@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d13">
+  <meta name="description" content="A source-linked hardware research hub: third-party benchmark data, manufacturer specifications and practical Windows compatibility explainers.">
+  <title>Hardware Research Hub | Kyle Tech Testing</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="research.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar shell">
+    <a class="brand" href="index.html" aria-label="Kyle Tech Testing home"><span class="brand-icon">K<span>/</span>T</span><span>KYLE TECH TESTING</span></a>
+    <nav class="nav" aria-label="Main navigation"><a href="index.html">Overview</a><a href="evaluation.html">Evaluation</a><a href="lab.html">Test lab</a><a href="methods.html">How I test</a><a href="reports.html">Reports</a><a href="research-hub.html" aria-current="page">Research</a><a href="sample-reports.html">Examples</a><a href="collaborate.html">For manufacturers</a></nav>
+    <a class="nav-cta" href="mailto:kyle.techtesting@gmail.com">Start a conversation <span aria-hidden="true">↗</span></a>
+  </header>
+  <main id="main">
+    <section class="research-hero shell">
+      <p class="kicker"><span class="pulse" aria-hidden="true"></span> SOURCE-LINKED HARDWARE RESEARCH <span class="kicker-rule"></span> THIRD-PARTY DATA LABELED</p>
+      <h1>Research you can <span>trace.</span></h1>
+      <p class="hero-lede">Benchmark datasets, official specifications and Windows compatibility notes—kept separate from Kyle Tech Testing hands-on results.</p>
+      <div class="research-callout"><strong>Evidence boundary</strong><span>External benchmark values are third-party data. The RTX 4070 ComfyUI telemetry is our own limited evaluation, shown separately in the <a href="evaluation.html">RTX 4070 report</a>.</span></div>
+    </section>
+    <section class="research-section shell" aria-labelledby="gpu-research-title">
+      <div class="section-heading"><div><p class="eyebrow">DATA EXPLORER · SNAPSHOT COLLECTED 2026-11-21</p><h2 id="gpu-research-title">Blender Cycles GPU results</h2></div><a class="text-link" href="research-sources.md">Sources & reuse terms ↗</a></div>
+      <div class="research-summary"><p>Community-submitted Blender Open Data medians filtered to <b>Blender 4.4.0 + OptiX</b>. Each bar is the published device median; its count is the number of submitted benchmark records. This is not a controlled lab comparison, and submitter systems may differ.</p><p class="third-party-tag">THIRD-PARTY DATA · NOT TESTED BY KYLE TECH TESTING</p></div>
+      <div class="research-toolbar"><label class="research-search-label" for="research-search">Search research</label><input id="research-search" type="search" placeholder="GPU, mini PC, Windows, Wi-Fi…" autocomplete="off"><div class="research-filters" role="group" aria-label="Filter research cards"><button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">All topics</button><button class="filter-chip" type="button" data-filter="gpu" aria-pressed="false">GPU data</button><button class="filter-chip" type="button" data-filter="systems" aria-pressed="false">Mini PCs & CPUs</button><button class="filter-chip" type="button" data-filter="windows" aria-pressed="false">Windows & networking</button></div></div>
+      <figure class="benchmark-panel" aria-labelledby="benchmark-caption"><figcaption id="benchmark-caption">Blender Open Data · median Cycles score · samples/minute estimate · higher indicates more samples rendered in the benchmark</figcaption><div class="benchmark-chart" id="benchmark-chart" role="group" aria-label="Bar chart of Blender 4.4.0 OptiX community GPU median scores"><p class="chart-loading">Loading the curated source snapshot…</p></div><div class="chart-axis-note"><span>0</span><span>Median score · samples/min</span></div><p class="chart-note">Source data: <a href="https://opendata.blender.org/benchmarks/query/?blender_version=4.4.0&amp;compute_type=OPTIX&amp;group_by=device_name">Blender Open Data query</a>, version 4.4.0, OptiX, grouped by GPU model. The <a href="data/blender-4.4.0-optix-gpu.csv">curated source snapshot</a> and <a href="research-sources.md">reuse notes</a> are available. Medians summarize community submissions; they do not predict every PC's result.</p></figure>
+      <div class="research-cards" id="research-cards">
+        <article class="research-card" data-category="gpu" data-search="gpu graphics blender cycles optix rtx benchmark comparison"><span class="card-index">01 / GPU</span><h3>Reading the Blender GPU comparison</h3><p>What the score measures, why backend and application version matter, and what community medians can—and cannot—tell you.</p><a href="gpu-research.html">Open the GPU analysis <span aria-hidden="true">↗</span></a></article>
+        <article class="research-card" data-category="systems" data-search="mini pc mini pc buyer guide n100 memory storage ports cooling power"><span class="card-index">02 / MINI PC</span><h3>Mini PC spec sheet, decoded</h3><p>A practical review checklist for memory topology, storage, cooling, ports, networking and support claims.</p><a href="mini-pc-guide.html">Read the mini PC guide <span aria-hidden="true">↗</span></a></article>
+        <article class="research-card" data-category="systems" data-search="cpu processor intel n100 guide core threads turbo graphics mini pc"><span class="card-index">03 / PROCESSOR</span><h3>Intel Processor N100: facts before expectations</h3><p>Official CPU specifications and the system-level details a single processor listing does not answer.</p><a href="processor-guide.html">Read the processor guide <span aria-hidden="true">↗</span></a></article>
+        <article class="research-card" data-category="windows" data-search="windows compatibility peripherals usb bluetooth networking wifi troubleshooting"><span class="card-index">04 / WINDOWS</span><h3>Windows peripheral & network compatibility</h3><p>A repeatable way to distinguish plug-in detection, driver support, feature parity and sustained reliability.</p><a href="windows-compatibility.html">Open the compatibility explainer <span aria-hidden="true">↗</span></a></article>
+      </div>
+      <p id="research-empty" class="research-empty" hidden>No research cards match that search. Clear the search or choose another topic.</p>
+    </section>
+    <section class="research-boundary shell"><div><p class="eyebrow">OUR OWN MEASUREMENTS</p><h2>Different evidence. Different label.</h2><p>The RTX 4070 report contains two short Windows telemetry captures associated with a ComfyUI trial. It does not contain a Blender benchmark. External research values above must not be read as results from Kyle’s GPU.</p></div><a class="button button-blue" href="evaluation.html">Read the RTX 4070 evaluation ↗</a></section>
+  </main>
+  <footer class="footer shell"><a class="brand" href="index.html"><span class="brand-icon">K<span>/</span>T</span><span>KYLE TECH TESTING</span></a><p>Independent hardware research. Sources visible. Limits stated.</p><a href="research-sources.md">Source register</a><a href="mailto:kyle.techtesting@gmail.com">Contact</a></footer>
+</body>
+</html>
